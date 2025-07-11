@@ -9,6 +9,21 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/image',
     '@nuxt/scripts',
-    '@nuxt/ui'
-  ]
+    '@nuxt/ui-pro'
+  ],
+
+  css: ['~/assets/css/main.css'],
+
+  uiPro: {
+    license: process.env.MY_ENVIRONMENT_VARIABLE,
+    mdc: true,
+    content: true
+  },
+
+  ui: {
+    fonts: true, 
+    colorMode: false
+  }
+
+
 })
