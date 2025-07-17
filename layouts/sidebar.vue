@@ -4,19 +4,38 @@
     <UDashboardPanel>
       <template #header>
         <UDashboardNavbar
-          :title="title"
-          icon="ph:house-line-duotone"
           :toggle="true"
-          class="p-6 h-auto"
-          :ui="{
-            title: 'text-sm font-regular',
-            icon: 'text-sm',
-          }"
-        />
+          class="p-5 h-auto"
+        >
+          <template #title>
+            <div class="flex items-center gap-2 text-sm">
+              <UButton 
+                v-if="route.name.includes('integrations-')" 
+                to="/integrations" 
+                color="gray" 
+                variant="link" 
+                size="sm" 
+                class="text-gray-600 dark:text-gray-400 p-0"
+              >
+                Integrations
+              </UButton>
+              <Icon v-if="route.name.includes('integrations-')" name="i-heroicons-chevron-right" class="w-4 h-4 text-gray-400" />
+              <span class="text-gray-900 dark:text-white">{{ title }}</span>
+              <span 
+                v-if="route.name === 'integrations-shopify'" 
+                class="ml-2 px-2 py-0.5 text-xs font-medium bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300 rounded-full"
+              >
+                Connected
+              </span>
+            </div>
+          </template>
+        </UDashboardNavbar>
       </template>
 
     <template #body>
-      <slot />
+      <div class="bg-gray-50 dark:bg-gray-950 min-h-full">
+        <slot />
+      </div>
     </template>
     </UDashboardPanel>
     <UDashboardSearch :groups="groups" />
