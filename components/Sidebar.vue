@@ -9,7 +9,7 @@ const open = ref(false)
 const links = [[{
   label: 'Dashboard',
   icon: 'ph:house-line-duotone',
-  to: '/dashboard',
+  to: '/',
   onSelect: () => {
     open.value = false
   }
@@ -32,29 +32,22 @@ const links = [[{
   to: '/analytics',
   icon: 'ph:chart-bar-duotone',
   defaultOpen: false,
-  type: 'trigger',
   children: [{
-    label: 'General',
-    to: '/settings',
+    label: 'Business',
+    to: '/analytics/business',
     exact: true,
     onSelect: () => {
       open.value = false
     }
   }, {
-    label: 'Members',
-    to: '/settings/members',
+    label: 'Website',
+    to: '/analytics/website',
     onSelect: () => {
       open.value = false
     }
   }, {
-    label: 'Notifications',
-    to: '/settings/notifications',
-    onSelect: () => {
-      open.value = false
-    }
-  }, {
-    label: 'Security',
-    to: '/settings/security',
+    label: 'Campaigns',
+    to: '/analytics/campaigns',
     onSelect: () => {
       open.value = false
     }
