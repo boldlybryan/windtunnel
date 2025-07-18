@@ -25,19 +25,19 @@
       <div class="space-y-0">
         <!-- Completed item -->
         <div class="flex items-center justify-between py-3">
-          <div class="flex items-center gap-3">
-            <div class="w-5 h-5 bg-green-500 rounded flex items-center justify-center">
-              <Icon name="i-heroicons-check" class="w-3 h-3 text-white" />
-            </div>
-            <span class="text-sm font-medium text-gray-900 dark:text-white line-through">
+          <label class="flex items-center gap-3 cursor-pointer">
+            <UCheckbox 
+              v-model="checklist.shopifyApp"
+            />
+            <span class="text-sm font-medium" :class="checklist.shopifyApp ? 'text-gray-500 dark:text-gray-400 line-through' : 'text-gray-900 dark:text-white'">
               Install NaviStone app on your Shopify store
             </span>
-          </div>
+          </label>
           <UButton 
             color="neutral" 
             variant="subtle" 
             size="xs"
-            disabled
+            :disabled="checklist.shopifyApp"
           >
             Install app
           </UButton>
@@ -45,12 +45,14 @@
 
         <!-- Pending items -->
         <div class="flex items-center justify-between py-3 border-t border-gray-200 dark:border-gray-700">
-          <div class="flex items-center gap-3">
-            <div class="w-5 h-5 border-2 border-gray-300 dark:border-gray-600 rounded"></div>
-            <span class="text-sm font-medium text-gray-900 dark:text-white">
+          <label class="flex items-center gap-3 cursor-pointer">
+            <UCheckbox 
+              v-model="checklist.dataSync"
+            />
+            <span class="text-sm font-medium" :class="checklist.dataSync ? 'text-gray-500 dark:text-gray-400 line-through' : 'text-gray-900 dark:text-white'">
               Enable automatic data syncing
             </span>
-          </div>
+          </label>
           <UButton 
             color="neutral" 
             variant="subtle" 
@@ -61,12 +63,14 @@
         </div>
 
         <div class="flex items-center justify-between py-3 border-t border-gray-200 dark:border-gray-700">
-          <div class="flex items-center gap-3">
-            <div class="w-5 h-5 border-2 border-gray-300 dark:border-gray-600 rounded"></div>
-            <span class="text-sm font-medium text-gray-900 dark:text-white">
+          <label class="flex items-center gap-3 cursor-pointer">
+            <UCheckbox 
+              v-model="checklist.trackingScript"
+            />
+            <span class="text-sm font-medium" :class="checklist.trackingScript ? 'text-gray-500 dark:text-gray-400 line-through' : 'text-gray-900 dark:text-white'">
               Install tracking script on your website
             </span>
-          </div>
+          </label>
           <UButton 
             color="neutral" 
             variant="subtle" 
@@ -77,12 +81,14 @@
         </div>
 
         <div class="flex items-center justify-between py-3 border-t border-b border-gray-200 dark:border-gray-700">
-          <div class="flex items-center gap-3">
-            <div class="w-5 h-5 border-2 border-gray-300 dark:border-gray-600 rounded"></div>
-            <span class="text-sm font-medium text-gray-900 dark:text-white">
+          <label class="flex items-center gap-3 cursor-pointer">
+            <UCheckbox 
+              v-model="checklist.paymentMethod"
+            />
+            <span class="text-sm font-medium" :class="checklist.paymentMethod ? 'text-gray-500 dark:text-gray-400 line-through' : 'text-gray-900 dark:text-white'">
               Add payment method
             </span>
-          </div>
+          </label>
           <UButton 
             color="neutral" 
             variant="subtle" 
@@ -99,5 +105,12 @@
 <script setup>
 definePageMeta({
   layout: 'sidebar'
+})
+
+const checklist = reactive({
+  shopifyApp: true,
+  dataSync: false,
+  trackingScript: false,
+  paymentMethod: false
 })
 </script>
