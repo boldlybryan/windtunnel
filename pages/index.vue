@@ -38,6 +38,7 @@
             variant="subtle" 
             size="xs"
             :disabled="checklist.shopifyApp"
+            to="/integrations/shopify"
           >
             Install app
           </UButton>
@@ -57,6 +58,7 @@
             color="neutral" 
             variant="subtle" 
             size="xs"
+            to="/integrations/shopify"
           >
             Enable sync
           </UButton>
@@ -75,6 +77,7 @@
             color="neutral" 
             variant="subtle" 
             size="xs"
+            to="/integrations/shopify"
           >
             Install script
           </UButton>
@@ -93,6 +96,7 @@
             color="neutral" 
             variant="subtle" 
             size="xs"
+            to="/settings/billing"
           >
             Enter card details
           </UButton>
