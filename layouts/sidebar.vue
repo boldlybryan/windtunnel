@@ -1,14 +1,14 @@
 <template>
   <UDashboardGroup>
     <Sidebar />
-    <UDashboardPanel>
+    <UDashboardPanel class="bg-gray-50 dark:bg-gray-950 min-h-full">
       <template #header>
         <UDashboardNavbar
           :toggle="true"
-          class="p-5 h-auto"
+          class="p-5"
         >
           <template #title>
-            <div class="flex items-center gap-2 text-sm">
+            <div class="flex items-center gap-2 text-xs">
               <UButton 
                 v-if="route.name.includes('integrations-')" 
                 to="/integrations" 
@@ -33,7 +33,7 @@
       </template>
 
     <template #body>
-      <div class="bg-gray-50 dark:bg-gray-950 min-h-full">
+      <div class="">
         <slot />
       </div>
     </template>
@@ -49,6 +49,7 @@ import Sidebar from '~/components/Sidebar.vue'
 const route = useRoute()
 
 const title = computed(() => {
-  return route.name.split('/').pop().charAt(0).toUpperCase() + route.name.split('/').pop().slice(1)
+  const routePart = route.name.split('-').pop()
+  return routePart.charAt(0).toUpperCase() + routePart.slice(1)
 })
 </script>
