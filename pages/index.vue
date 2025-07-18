@@ -58,6 +58,7 @@
             color="neutral" 
             variant="subtle" 
             size="xs"
+            :disabled="checklist.dataSync"
             to="/integrations/shopify"
           >
             Enable sync
@@ -77,6 +78,7 @@
             color="neutral" 
             variant="subtle" 
             size="xs"
+            :disabled="checklist.trackingScript"
             to="/integrations/shopify"
           >
             Install script
@@ -96,6 +98,7 @@
             color="neutral" 
             variant="subtle" 
             size="xs"
+            :disabled="checklist.paymentMethod"
             to="/settings/billing"
           >
             Enter card details
