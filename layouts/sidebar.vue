@@ -10,16 +10,16 @@
           <template #title>
             <div class="flex items-center gap-2 text-xs">
               <UButton 
-                v-if="route.name.includes('integrations-')" 
-                to="/integrations" 
+                v-if="parentSection" 
+                :to="`/${parentSection}`" 
                 color="gray" 
                 variant="link" 
                 size="sm" 
                 class="text-gray-600 dark:text-gray-400 p-0"
               >
-                Integrations
+                {{ parentSectionTitle }}
               </UButton>
-              <Icon v-if="route.name.includes('integrations-')" name="i-heroicons-chevron-right" class="w-4 h-4 text-gray-400" />
+              <Icon v-if="parentSection" name="i-heroicons-chevron-right" class="w-4 h-4 text-gray-400" />
               <span class="text-gray-900 dark:text-white">{{ title }}</span>
               <span 
                 v-if="route.name === 'integrations-shopify'" 
@@ -51,5 +51,19 @@ const route = useRoute()
 const title = computed(() => {
   const routePart = route.name.split('-').pop()
   return routePart.charAt(0).toUpperCase() + routePart.slice(1)
+})
+
+const parentSection = computed(() => {
+  const routeParts = route.name.split('-')
+  // Check if this is a nested route (has more than one part and isn't an index page)
+  if (routeParts.length > 1 && routeParts[1] !== 'index') {
+    return routeParts[0]
+  }
+  return null
+})
+
+const parentSectionTitle = computed(() => {
+  if (!parentSection.value) return null
+  return parentSection.value.charAt(0).toUpperCase() + parentSection.value.slice(1)
 })
 </script>

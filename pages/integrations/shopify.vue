@@ -172,9 +172,6 @@
             <UCheckbox v-model="checkoutCompleted" />
             <span class="text-sm text-gray-700 dark:text-gray-300">Checkout completed</span>
           </label>
-          <UButton color="gray" variant="ghost" size="sm" icon="i-heroicons-plus" class="mt-1 text-gray-600">
-            Add to cart(?)
-          </UButton>
         </div>
       </div>
     </div>
