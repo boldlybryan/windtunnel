@@ -7,6 +7,10 @@
         <NuxtLink to="/analytics/business" class="nav-link">Business</NuxtLink>
         <NuxtLink to="/analytics/campaigns" class="nav-link">Campaigns</NuxtLink>
         <NuxtLink to="/analytics/website" class="nav-link">Website</NuxtLink>
+        <NuxtLink to="/analytics/ai-insights" class="nav-link ai-link">
+          <UIcon name="i-heroicons-sparkles" />
+          AI Insights
+        </NuxtLink>
       </div>
     </div>
 
@@ -206,6 +210,24 @@ const timePeriods = [
 
 .nav-link:hover {
   color: #111827;
+}
+
+.ai-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+  color: white !important;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.ai-link:hover {
+  background: linear-gradient(135deg, #2563EB, #7C3AED);
+  color: white !important;
+  transform: translateY(-1px);
 }
 
 /* Time Selector */
